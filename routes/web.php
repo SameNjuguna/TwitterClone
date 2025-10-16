@@ -19,4 +19,8 @@ use App\Http\Controllers\DashboardController;
 // View : handles the presentation layer (UI)
 // Controller : handles user input and interacts with the model and view
 
-Route::get('/', [DashboardController::class, 'index'] );
+Route::get('/', [DashboardController::class, 'index']);
+
+Route::get('/terms', function () {
+    return view('terms');
+});
