@@ -9,14 +9,11 @@ class DashboardController extends Controller
 {
     public function index()
     {
-
-        $blog = new Blog([
-            'content' => 'My first blog post',
-        ]);
-        $blog->save();
-
-        return view('dashboard', [
-            'blogs' => Blog::orderBy('created_at', 'desc')->get(),
-        ]);
+        return view(
+            'dashboard',
+            [
+                'blogs' => Blog::orderBy('created_at', 'desc')->paginate(1),
+            ]
+        );
     }
 }

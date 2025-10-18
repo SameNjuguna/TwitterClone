@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,9 @@ use App\Http\Controllers\DashboardController;
 // View : handles the presentation layer (UI)
 // Controller : handles user input and interacts with the model and view
 
-Route::get('/', [DashboardController::class, 'index']);
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::post('/blog', [BlogController::class, 'store'])->name('blog.create');
 
 Route::get('/terms', function () {
     return view('terms');
